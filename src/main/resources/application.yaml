@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: ${DATABASE_HOST}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    #i don't get u?
+    # the sooner u get use to this syntax, u will be ready for deployment
+    # this is no learning, just have it as a habbit of using .env over
+    # is a pattern, if u leave something it won't work
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: TRACE
+        SQL: DEBUG
+
+server:
+  port: 8088 #this is where u maniplicate the port number
+

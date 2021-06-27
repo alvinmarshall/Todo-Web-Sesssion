@@ -8,6 +8,7 @@ import com.websession.todotask.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -37,6 +38,11 @@ public class TodoServiceImpl implements TodoService {
         newTodo.setDescription(todo.getDescription());
         newTodo.setCompleted(todo.isCompleted());
         return todoRepository.save(newTodo);
+    }
+
+    @Override
+    public List<Todo> getTodos() {
+        return todoRepository.findAll();
     }
 
     @Override
